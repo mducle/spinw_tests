@@ -23,9 +23,9 @@ jobs:
       - name: Invoke creation hook
         uses: distributhor/workflow-webhook@v1
         env:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
-          webhook_auth: ${{ secrets.WEBHOOK_AUTH }}
+          webhook_url: ${{ secrets.WEBHOOK_URL_MDL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET_MDL }}
+          webhook_auth: ${{ secrets.WEBHOOK_AUTH_MDL }}
           data: '{ "ghcontrol": "create", "server" : "linux", "PAT" : "${{ secrets.PERSONAL_TOKEN }}" }'
   
   # This workflow runs the actual unit tests if we have suceeded creating the VM
@@ -63,7 +63,7 @@ jobs:
       - name: Invoke destroying hook
         uses: distributhor/workflow-webhook@v1
         env:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
-          webhook_auth: ${{ secrets.WEBHOOK_AUTH }}
+          webhook_url: ${{ secrets.WEBHOOK_URL_MDL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET_MDL }}
+          webhook_auth: ${{ secrets.WEBHOOK_AUTH_MDL }}
           data: '{ "ghcontrol": "destroy", "server" : "linux" }'
